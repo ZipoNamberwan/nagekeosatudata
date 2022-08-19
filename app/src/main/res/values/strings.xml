@@ -25,7 +25,7 @@
     <string name="web_service_path_list_infographics"> https://webapi.bps.go.id/v1/api/list/?model=infographic&amp;lang=ind&amp;domain=5318</string>
     <string name="web_service_path_list_data"> https://webapi.bps.go.id/v1/api/list/?model=data&amp;lang=ind&amp;domain=5318</string>
 
-    <string name="web_service_path_detail_indicators"> https://webapi.bps.go.id/v1/api/list/?model=data&amp;domain=3513</string>
+    <string name="web_service_path_detail_indicators"> https://webapi.bps.go.id/v1/api/list/?model=data&amp;domain=5318</string>
     <string name="web_service_path_detail_brs"> https://webapi.bps.go.id/v1/api/view?model=pressrelease&amp;domain=5318&amp;lang=ind</string>
     <string name="web_service_path_detail_tabel"> https://webapi.bps.go.id/v1/api/view?model=statictable&amp;domain=5318&amp;lang=ind</string>
     <string name="web_service_path_detail_publication"> https://webapi.bps.go.id/v1/api/view?model=publication&amp;domain=5318&amp;lang=ind</string>
