@@ -214,8 +214,8 @@ public class ViewChatAdminActivity extends AppCompatActivity {
     private void displayEmailAdmin(){
         ArrayList<Kontak> kontaks = new ArrayList<>();
 
-        kontaks.add(new Kontak(R.drawable.ic_email_black_24dp, "Email (bps3513@bps.go.id)", "Kirim email ke kami tentang pertanyaan seputar data-data statistik", "Email"));
-        kontaks.add(new Kontak(R.drawable.ic_call_black_24dp, "Telepon", "Hubungi kami melalui telepon di jam kerja", "Telepon"));
+        kontaks.add(new Kontak(R.drawable.ic_email_black_24dp, "Email (bps5318@bps.go.id)", "Kirim email ke kami tentang pertanyaan seputar data-data statistik", "Email"));
+//        kontaks.add(new Kontak(R.drawable.ic_call_black_24dp, "Telepon", "Hubungi kami melalui telepon di jam kerja", "Telepon"));
 
         KontakAdapter adapter = new KontakAdapter(kontaks, ViewChatAdminActivity.this, new RecyclerViewClickListener() {
             @Override
@@ -236,15 +236,15 @@ public class ViewChatAdminActivity extends AppCompatActivity {
     private void displayWhatsappAdmin() {
         ArrayList<Kontak> kontaks = new ArrayList<>();
 
-        kontaks.add(new Kontak(R.drawable.ic_whatsapp, "Rony Hadiyanto", "Petugas Pelayanan Statistik Terpadu", "Whatsapp1"));
-        kontaks.add(new Kontak(R.drawable.ic_whatsapp, "Dicky Dita Firmansyah", "Petugas Pelayanan Statistik Terpadu", "Whatsapp2"));
+        kontaks.add(new Kontak(R.drawable.ic_whatsapp, "Saturninus Raja Gati", "Petugas Pelayanan Statistik Terpadu", "Whatsapp1"));
+//        kontaks.add(new Kontak(R.drawable.ic_whatsapp, "Dicky Dita Firmansyah", "Petugas Pelayanan Statistik Terpadu", "Whatsapp2"));
 
         KontakAdapter adapter = new KontakAdapter(kontaks, ViewChatAdminActivity.this, new RecyclerViewClickListener() {
             @Override
             public void onItemClick(Object object) {
                 String phoneNumberWithCountryCode = "";
                 if (((Kontak)object).getJenis().equals("Whatsapp1")){
-                    phoneNumberWithCountryCode = "+6281331773627";
+                    phoneNumberWithCountryCode = "+6282247448085";
                 } else if (((Kontak)object).getJenis().equals("Whatsapp2")){
                     phoneNumberWithCountryCode = "+6285346200543";
                 }

@@ -144,7 +144,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (getSupportActionBar()!=null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
@@ -174,16 +174,16 @@ public class IndikatorViewActivity extends AppCompatActivity {
                             //setup variabel
                             setUpVarAttribute(jsonObject);
 
-                            if (initialIdVerVar == null | initialIdTurVar == null){
+                            if (initialIdVerVar == null | initialIdTurVar == null) {
                                 //setup grafik awal
-                                idVerVar = vertikalVariabels.get(vertikalVariabels.size()-1).getId();
-                                idTurvarGrafik = turunanVertikalVariabels.get(turunanVertikalVariabels.size()-1).getId();
+                                idVerVar = vertikalVariabels.get(vertikalVariabels.size() - 1).getId();
+                                idTurvarGrafik = turunanVertikalVariabels.get(turunanVertikalVariabels.size() - 1).getId();
                                 setUpDataGrafik(jsonObject, idVerVar, idTurvarGrafik);
                                 setUpGrafikStat();
 
                                 //setup tabel awal
                                 getLatestPeriode(jsonObject);
-                                idTurvarTabel = turunanVertikalVariabels.get(turunanVertikalVariabels.size()-1).getId();
+                                idTurvarTabel = turunanVertikalVariabels.get(turunanVertikalVariabels.size() - 1).getId();
                                 setUpDataTabel(jsonObject, idTahun, idTurTahun, idTurvarTabel);
                                 setUpTabelStat();
                             } else {
@@ -225,30 +225,30 @@ public class IndikatorViewActivity extends AppCompatActivity {
         JSONObject dataContentJson = jsonObject.getJSONObject("datacontent");
 
         String idDataContent = null;
-        for (int x = tahunVariabels.size()-1; x >= 0; x--){
+        for (int x = tahunVariabels.size() - 1; x >= 0; x--) {
             String tahun = tahunVariabels.get(x).getId();
-            for (int y = turunanTahunVariabels.size()-1; y >= 0; y-- ){
+            for (int y = turunanTahunVariabels.size() - 1; y >= 0; y--) {
                 String turTahun = turunanTahunVariabels.get(y).getId();
-                for (int z = 0; z < vertikalVariabels.size(); z++){
+                for (int z = 0; z < vertikalVariabels.size(); z++) {
                     String vertikalVar = vertikalVariabels.get(z).getId();
-                    for (int a = 0; a < turunanVertikalVariabels.size(); a++){
+                    for (int a = 0; a < turunanVertikalVariabels.size(); a++) {
                         String turVervar = turunanVertikalVariabels.get(a).getId();
                         idDataContent = vertikalVar + this.idVar + turVervar + tahun + turTahun;
-                        if (dataContentJson.has(idDataContent)){
+                        if (dataContentJson.has(idDataContent)) {
                             this.idTahun = tahun;
                             this.idTurTahun = turTahun;
                             break;
                         }
                     }
-                    if (dataContentJson.has(idDataContent)){
+                    if (dataContentJson.has(idDataContent)) {
                         break;
                     }
                 }
-                if (dataContentJson.has(idDataContent)){
+                if (dataContentJson.has(idDataContent)) {
                     break;
                 }
             }
-            if (dataContentJson.has(idDataContent)){
+            if (dataContentJson.has(idDataContent)) {
                 break;
             }
         }
@@ -324,8 +324,8 @@ public class IndikatorViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String s = labelVar + " " + labelVerVar + " " + labelTurvarGrafik;
-                s = s.replaceAll("[[-+.^:,/$#]]","");
-                if (lineChart.saveToGallery(s)){
+                s = s.replaceAll("[[-+.^:,/$#]]", "");
+                if (lineChart.saveToGallery(s)) {
                     Snackbar.make(v, "Grafik tersimpan di gallery", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
@@ -362,12 +362,12 @@ public class IndikatorViewActivity extends AppCompatActivity {
         JSONObject dataContentJson = jsonObject.getJSONObject("datacontent");
 
         tabelContents = new ArrayList<>();
-        for (int k = 0; k < verVarJsonArray.length(); k++){
+        for (int k = 0; k < verVarJsonArray.length(); k++) {
             String verVar = verVarJsonArray.getJSONObject(k).getString("val");
             String idDataContent = verVar + idVar + turVarId + tahunId + turTahunId;
-            if (dataContentJson.has(idDataContent)){
+            if (dataContentJson.has(idDataContent)) {
                 tabelContents.add(dataContentJson.getString(idDataContent));
-            }else {
+            } else {
                 tabelContents.add("-");
             }
         }
@@ -378,29 +378,29 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         //setup var tahun
         this.idTahun = tahunId;
-        for (int i = 0; i < tahunVariabels.size(); i++){
-            if (tahunId.equals(tahunVariabels.get(i).getId())){
+        for (int i = 0; i < tahunVariabels.size(); i++) {
+            if (tahunId.equals(tahunVariabels.get(i).getId())) {
                 this.labelTahun = tahunVariabels.get(i).getLabel();
             }
         }
         //setup turunan tahun
         this.idTurTahun = turTahunId;
-        for (int i = 0; i < turunanTahunVariabels.size(); i++){
-            if (turTahunId.equals(turunanTahunVariabels.get(i).getId())){
+        for (int i = 0; i < turunanTahunVariabels.size(); i++) {
+            if (turTahunId.equals(turunanTahunVariabels.get(i).getId())) {
                 this.labelTurTahun = turunanTahunVariabels.get(i).getLabel();
             }
         }
         //setup turunan var
         this.idTurvarTabel = turVarId;
-        for (int i = 0; i < turunanVertikalVariabels.size(); i++){
-            if (turVarId.equals(turunanVertikalVariabels.get(i).getId())){
+        for (int i = 0; i < turunanVertikalVariabels.size(); i++) {
+            if (turVarId.equals(turunanVertikalVariabels.get(i).getId())) {
                 this.labelTurvarTabel = turunanVertikalVariabels.get(i).getLabel();
             }
         }
 
     }
 
-    private void setUpTabelStat(){
+    private void setUpTabelStat() {
         tableLayout.removeAllViews();
 
         String s = "Tabel " + labelVar + " " + periodeHeader + " " + unitVar;
@@ -409,12 +409,12 @@ public class IndikatorViewActivity extends AppCompatActivity {
         TableRow header = new TableRow(this);
         insertRow(tableLayout, header, labelHeader, periodeHeader, true, false);
 
-        for (int i = 0; i < vertikalVariabels.size(); i++){
+        for (int i = 0; i < vertikalVariabels.size(); i++) {
             TableRow tr = new TableRow(this);
-            if (tabelContents.get(i).equals("-")){
-                insertRow(tableLayout, tr, vertikalVariabels.get(i).getLabel(), tabelContents.get(i), false, i%2==0);
-            }else {
-                insertRow(tableLayout, tr, vertikalVariabels.get(i).getLabel(), AppUtils.formatNumberSeparator(Float.parseFloat(tabelContents.get(i))), false, i%2==0);
+            if (tabelContents.get(i).equals("-")) {
+                insertRow(tableLayout, tr, vertikalVariabels.get(i).getLabel(), tabelContents.get(i), false, i % 2 == 0);
+            } else {
+                insertRow(tableLayout, tr, vertikalVariabels.get(i).getLabel(), AppUtils.formatNumberSeparator(Float.parseFloat(tabelContents.get(i))), false, i % 2 == 0);
             }
         }
     }
@@ -424,8 +424,8 @@ public class IndikatorViewActivity extends AppCompatActivity {
                 TableRow.LayoutParams.WRAP_CONTENT,
                 TableRow.LayoutParams.WRAP_CONTENT));*/
 
-        View rowView = View.inflate(this,R.layout.layout_cell_tabel, null);
-        if (isEvenRow){
+        View rowView = View.inflate(this, R.layout.layout_cell_tabel, null);
+        if (isEvenRow) {
             rowView.setBackgroundColor(getResources().getColor(R.color.md_blue_grey_50));
         }
         rowView.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f));
@@ -433,7 +433,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         TextView col2 = rowView.findViewById(R.id.value);
         col1.setText(label);
         col2.setText(value);
-        if (isHeader){
+        if (isHeader) {
             col1.setTypeface(Typeface.DEFAULT_BOLD);
             col1.setTextColor(getResources().getColor(R.color.material_drawer_primary_text));
             col2.setTypeface(Typeface.DEFAULT_BOLD);
@@ -454,12 +454,12 @@ public class IndikatorViewActivity extends AppCompatActivity {
         List<Entry> grafikContents = new ArrayList<>();
 
         int z = 0;
-        for (int x = 0; x < tahunVariabels.size(); x++){
+        for (int x = 0; x < tahunVariabels.size(); x++) {
             String tahunId = tahunVariabels.get(x).getId();
-            for (int y = 0 ; y < turunanTahunVariabels.size(); y++) {
+            for (int y = 0; y < turunanTahunVariabels.size(); y++) {
                 String turTahunId = turunanTahunVariabels.get(y).getId();
                 String idDataContent = idVerVar + idVar + idTurvar + tahunId + turTahunId;
-                if (dataContentJson.has(idDataContent)){
+                if (dataContentJson.has(idDataContent)) {
                     axisLabels.add(turunanTahunVariabels.get(y).getLabel() + " " + tahunVariabels.get(x).getLabel());
                     float value = Float.parseFloat(dataContentJson.getString(idDataContent));
                     grafikContents.add(new Entry(z, value));
@@ -470,14 +470,14 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         //Ambil lima data terbaru
         subGrafikContents = new ArrayList<>();
-        if (grafikContents.size()>=5){
+        if (grafikContents.size() >= 5) {
             z = 0;
-            for (int i = grafikContents.size()-5; i < grafikContents.size(); i++){
+            for (int i = grafikContents.size() - 5; i < grafikContents.size(); i++) {
                 subGrafikContents.add(new Entry(z, grafikContents.get(i).getY()));
                 z++;
             }
-            subAxisLabels = axisLabels.subList(axisLabels.size()-5, axisLabels.size());
-        }else {
+            subAxisLabels = axisLabels.subList(axisLabels.size() - 5, axisLabels.size());
+        } else {
             subGrafikContents = grafikContents;
             subAxisLabels = axisLabels;
         }
@@ -485,16 +485,16 @@ public class IndikatorViewActivity extends AppCompatActivity {
         //Setup data u/ spinner
         //Setup vervar Spinner
         this.idVerVar = idVerVar;
-        for (int i = 0; i < vertikalVariabels.size(); i++){
-            if ((vertikalVariabels.get(i).getId()).equals(idVerVar)){
+        for (int i = 0; i < vertikalVariabels.size(); i++) {
+            if ((vertikalVariabels.get(i).getId()).equals(idVerVar)) {
                 labelVerVar = vertikalVariabels.get(i).getLabel();
             }
         }
 
         //Setup turvar Spinner
         this.idTurvarGrafik = idTurvar;
-        for (int i = 0; i < turunanVertikalVariabels.size(); i++){
-            if (turunanVertikalVariabels.get(i).getId().equals(idTurvar)){
+        for (int i = 0; i < turunanVertikalVariabels.size(); i++) {
+            if (turunanVertikalVariabels.get(i).getId().equals(idTurvar)) {
                 labelTurvarGrafik = turunanVertikalVariabels.get(i).getLabel();
             }
         }
@@ -559,37 +559,39 @@ public class IndikatorViewActivity extends AppCompatActivity {
         lineChart.setDescription(description);
 
         String s = "Grafik " + labelVar + " " + labelVerVar + " "
-                + subAxisLabels.get(0)+" - "+ subAxisLabels.get(subAxisLabels.size()-1) + " " + unitVar;
+                + subAxisLabels.get(0) + " - " + subAxisLabels.get(subAxisLabels.size() - 1) + " " + unitVar;
         judulGrafik.setText(s);
 
-        float value1 = subGrafikContents.get(subGrafikContents.size()-2).getY();
-        float value2 = subGrafikContents.get(subGrafikContents.size()-1).getY();
+        if (subGrafikContents.size() > 2) {
+            float value1 = subGrafikContents.get(subGrafikContents.size() - 2).getY();
+            float value2 = subGrafikContents.get(subGrafikContents.size() - 1).getY();
 
-        //Setup Detail Statistik
+            //Setup Detail Statistik
 
-        valueHighlight1Grafik.setText(AppUtils.formatNumberSeparator(value1));
-        tahunHighlight1Grafik.setText(subAxisLabels.get(subAxisLabels.size()-2));
-        valueHighlight2Grafik.setText(AppUtils.formatNumberSeparator(value2));
-        tahunHighlight2Grafik.setText(subAxisLabels.get(subAxisLabels.size()-1));
-        s = labelVar + " " + labelVerVar + " " + unitVar;
-        detailStatGrafik.setText(s);
+            valueHighlight1Grafik.setText(AppUtils.formatNumberSeparator(value1));
+            tahunHighlight1Grafik.setText(subAxisLabels.get(subAxisLabels.size() - 2));
+            valueHighlight2Grafik.setText(AppUtils.formatNumberSeparator(value2));
+            tahunHighlight2Grafik.setText(subAxisLabels.get(subAxisLabels.size() - 1));
+            s = labelVar + " " + labelVerVar + " " + unitVar;
+            detailStatGrafik.setText(s);
 
-        if (value1>value2){
-            icon.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.md_red_600)).icon(GoogleMaterial.Icon.gmd_keyboard_arrow_down));
-        }else {
-            icon.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.md_green_600)).icon(GoogleMaterial.Icon.gmd_keyboard_arrow_up));
+            if (value1 > value2) {
+                icon.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.md_red_600)).icon(GoogleMaterial.Icon.gmd_keyboard_arrow_down));
+            } else {
+                icon.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.md_green_600)).icon(GoogleMaterial.Icon.gmd_keyboard_arrow_up));
+            }
+            arrow.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.material_drawer_hint_text)).icon(FontAwesome.Icon.faw_long_arrow_right));
         }
-        arrow.setImageDrawable(new IconicsDrawable(this).color(getResources().getColor(R.color.material_drawer_hint_text)).icon(FontAwesome.Icon.faw_long_arrow_right));
 
         //Setup Spinner dan button
         verVarSpinner.setText(labelVerVar);
         turVarSpinnerGrafik.setText(labelTurvarGrafik);
-        if (turunanVertikalVariabels.size()==1){
+        if (turunanVertikalVariabels.size() == 1) {
             turVarSpinnerGrafik.setVisibility(View.GONE);
         }
     }
 
-    private void setUpDeskripsi(){
+    private void setUpDeskripsi() {
         judulDeskripsi.setText(labelVar);
         subjekDeskripsi.setText(subjekVar);
         definisi.setText(defVar);
@@ -598,15 +600,15 @@ public class IndikatorViewActivity extends AppCompatActivity {
         lastUpdateDeskripsi.setText(s);
     }
 
-    private List<TurunanTahunVariabel> sortTurTahunList(List<TurunanTahunVariabel> turunanTahunVariabels){
+    private List<TurunanTahunVariabel> sortTurTahunList(List<TurunanTahunVariabel> turunanTahunVariabels) {
 
         Collections.sort(turunanTahunVariabels, new Comparator<TurunanTahunVariabel>() {
             @Override
             public int compare(TurunanTahunVariabel o1, TurunanTahunVariabel o2) {
 
-                    Integer a = Integer.parseInt(o1.getId());
-                    Integer b = Integer.parseInt(o2.getId());
-                    return a.compareTo(b);
+                Integer a = Integer.parseInt(o1.getId());
+                Integer b = Integer.parseInt(o2.getId());
+                return a.compareTo(b);
             }
         });
 
@@ -618,9 +620,9 @@ public class IndikatorViewActivity extends AppCompatActivity {
         Collections.sort(tahunVariabels, new Comparator<TahunVariabel>() {
             @Override
             public int compare(TahunVariabel o1, TahunVariabel o2) {
-                    Integer a = Integer.parseInt(o1.getLabel());
-                    Integer b = Integer.parseInt(o2.getLabel());
-                    return a.compareTo(b);
+                Integer a = Integer.parseInt(o1.getLabel());
+                Integer b = Integer.parseInt(o2.getLabel());
+                return a.compareTo(b);
             }
         });
 
@@ -635,7 +637,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         unitVar = varArrayJson.getJSONObject(0).getString("unit");
         defVar = varArrayJson.getJSONObject(0).getString("def");
         subjekVar = varArrayJson.getJSONObject(0).getString("subj");
-        if (!unitVar.equals("")){
+        if (!unitVar.equals("")) {
             unitVar = "(" + unitVar + ")";
         }
         note = varArrayJson.getJSONObject(0).getString("note");
@@ -643,7 +645,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         //setUpVerVar
         vertikalVariabels = new ArrayList<>();
         JSONArray verVarJsonArray = jsonObject.getJSONArray("vervar");
-        for (int i = 0; i < verVarJsonArray.length(); i++){
+        for (int i = 0; i < verVarJsonArray.length(); i++) {
             vertikalVariabels.add(new VertikalVariabel(verVarJsonArray.getJSONObject(i).getString("val"),
                     verVarJsonArray.getJSONObject(i).getString("label")));
         }
@@ -651,7 +653,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         //Setup Turvar
         turunanVertikalVariabels = new ArrayList<>();
         JSONArray turVarArrayJson = jsonObject.getJSONArray("turvar");
-        for (int i = 0; i < turVarArrayJson.length(); i++){
+        for (int i = 0; i < turVarArrayJson.length(); i++) {
             turunanVertikalVariabels.add(new TurunanVertikalVariabel(turVarArrayJson.getJSONObject(i).getString("val"),
                     turVarArrayJson.getJSONObject(i).getString("label")));
         }
@@ -659,7 +661,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         //Setup Tahun
         tahunVariabels = new ArrayList<>();
         JSONArray tahunArrayJson = jsonObject.getJSONArray("tahun");
-        for (int i = 0; i < tahunArrayJson.length(); i++){
+        for (int i = 0; i < tahunArrayJson.length(); i++) {
             tahunVariabels.add(new TahunVariabel(tahunArrayJson.getJSONObject(i).getString("val"),
                     tahunArrayJson.getJSONObject(i).getString("label")));
         }
@@ -668,10 +670,10 @@ public class IndikatorViewActivity extends AppCompatActivity {
         //Setup Turunan Tahun
         turunanTahunVariabels = new ArrayList<>();
         JSONArray turTahunArrayJson = jsonObject.getJSONArray("turtahun");
-        for (int i = 0; i < turTahunArrayJson.length(); i++){
+        for (int i = 0; i < turTahunArrayJson.length(); i++) {
             //special case inflasi dan pertumbuhan ekonomi
-            if (i == turTahunArrayJson.length()-1){
-                if (idVar.equals("1") | idVar.equals("438")){
+            if (i == turTahunArrayJson.length() - 1) {
+                if (idVar.equals("1") | idVar.equals("438")) {
                     break;
                 }
             }
@@ -681,7 +683,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         turunanTahunVariabels = sortTurTahunList(turunanTahunVariabels);
 
         //and then come this shit
-        if (defVar.equals("")){
+        if (defVar.equals("")) {
             switch (idVar) {
                 case "46":
                     //IPM
@@ -752,7 +754,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
         builder.setTitle("Pilih Series");
 
         String list[] = new String[vertikalVariabels.size()];
-        for (int i = 0; i < vertikalVariabels.size(); i++){
+        for (int i = 0; i < vertikalVariabels.size(); i++) {
             list[i] = vertikalVariabels.get(i).getLabel();
         }
 
@@ -778,7 +780,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         String list[] = new String[turunanVertikalVariabels.size()];
 
-        for (int i = 0; i < turunanVertikalVariabels.size(); i++){
+        for (int i = 0; i < turunanVertikalVariabels.size(); i++) {
             list[i] = turunanVertikalVariabels.get(i).getLabel();
         }
 
@@ -800,13 +802,13 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
     private String getPeriodeHeader(String tahunId, String turTahunId) {
         StringBuilder periode = new StringBuilder();
-        for (int i = 0; i < turunanTahunVariabels.size(); i++){
-            if (turTahunId.equals(turunanTahunVariabels.get(i).getId())){
+        for (int i = 0; i < turunanTahunVariabels.size(); i++) {
+            if (turTahunId.equals(turunanTahunVariabels.get(i).getId())) {
                 periode.append(turunanTahunVariabels.get(i).getLabel()).append(" ");
             }
         }
-        for (int i = 0; i < tahunVariabels.size(); i++){
-            if (tahunId.equals(tahunVariabels.get(i).getId())){
+        for (int i = 0; i < tahunVariabels.size(); i++) {
+            if (tahunId.equals(tahunVariabels.get(i).getId())) {
                 periode.append(tahunVariabels.get(i).getLabel());
             }
         }
@@ -826,9 +828,9 @@ public class IndikatorViewActivity extends AppCompatActivity {
             }
         });
         turTahunSpinner = dialogView.findViewById(R.id.spinner_turtahun);
-        if (turunanTahunVariabels.size()==1){
+        if (turunanTahunVariabels.size() == 1) {
             turTahunSpinner.setVisibility(View.GONE);
-        }else {
+        } else {
             turTahunSpinner.setText(labelTurTahun);
             turTahunSpinner.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -838,9 +840,9 @@ public class IndikatorViewActivity extends AppCompatActivity {
             });
         }
         turVarSpinnerTabel = dialogView.findViewById(R.id.spinner_turvar_tabel);
-        if (turunanVertikalVariabels.size()==1){
+        if (turunanVertikalVariabels.size() == 1) {
             turVarSpinnerTabel.setVisibility(View.GONE);
-        }else {
+        } else {
             turVarSpinnerTabel.setText(labelTurvarTabel);
             turVarSpinnerTabel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -878,7 +880,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         String list[] = new String[turunanVertikalVariabels.size()];
 
-        for (int i = 0; i < turunanVertikalVariabels.size(); i++){
+        for (int i = 0; i < turunanVertikalVariabels.size(); i++) {
             list[i] = turunanVertikalVariabels.get(i).getLabel();
         }
 
@@ -899,7 +901,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         String list[] = new String[tahunVariabels.size()];
 
-        for (int i = 0; i < tahunVariabels.size(); i++){
+        for (int i = 0; i < tahunVariabels.size(); i++) {
             list[i] = tahunVariabels.get(i).getLabel();
         }
 
@@ -919,7 +921,7 @@ public class IndikatorViewActivity extends AppCompatActivity {
 
         String list[] = new String[turunanTahunVariabels.size()];
 
-        for (int i = 0; i < turunanTahunVariabels.size(); i++){
+        for (int i = 0; i < turunanTahunVariabels.size(); i++) {
             list[i] = turunanTahunVariabels.get(i).getLabel();
         }
 
@@ -960,23 +962,23 @@ public class IndikatorViewActivity extends AppCompatActivity {
         }
     };
 
-    private void setVisibilityView(boolean isGrafikVisible, boolean isTabelVisible, boolean isDeskripsiVisible){
-        if (!isLoading){
-            if (isGrafikVisible){
+    private void setVisibilityView(boolean isGrafikVisible, boolean isTabelVisible, boolean isDeskripsiVisible) {
+        if (!isLoading) {
+            if (isGrafikVisible) {
                 grafikView.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 grafikView.setVisibility(View.GONE);
             }
 
-            if (isTabelVisible){
+            if (isTabelVisible) {
                 tabelView.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 tabelView.setVisibility(View.GONE);
             }
 
-            if (isDeskripsiVisible){
+            if (isDeskripsiVisible) {
                 deskripsiView.setVisibility(View.VISIBLE);
-            }else {
+            } else {
                 deskripsiView.setVisibility(View.GONE);
             }
         }

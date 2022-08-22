@@ -274,7 +274,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (!isIndikatorApiCalled) {
             indikatorList.add(new RecentIndikatorItem("74", "Indeks Pembangunan Manusia", "", "", "0", "", new VertikalVariabel("1", ""), new TurunanVertikalVariabel("0", ""), false));
             indikatorList.add(new RecentIndikatorItem("98", "Persentase Penduduk Miskin", "", "", "0", "", new VertikalVariabel("1", ""), new TurunanVertikalVariabel("0", ""), false));
-//            indikatorList.add(new RecentIndikatorItem("124", "Jumlah Penduduk", "", "", "0", "", new VertikalVariabel("3513", ""), new TurunanVertikalVariabel("43", ""), false));
+            indikatorList.add(new RecentIndikatorItem("108", "Jumlah Penduduk Menurut SP 2020", "", "Hasil Sensus Penduduk 2020", "0", "", new VertikalVariabel("8", ""), new TurunanVertikalVariabel("0", ""), false));
 //            indikatorList.add(new RecentIndikatorItem("35", "Pertumbuhan Ekonomi", "", "", "0", "", new VertikalVariabel("18", ""), new TurunanVertikalVariabel("0", ""), false));
             indikatorList.add(new RecentIndikatorItem("66", "Tingkat Pengangguran", "", "", "0", "Persen", new VertikalVariabel("1", ""), new TurunanVertikalVariabel("0", ""), false));
 //            indikatorList.add(new RecentIndikatorItem("60", "Gini Rasio", "", "", "0", "", new VertikalVariabel("1", ""), new TurunanVertikalVariabel("0", ""), false));

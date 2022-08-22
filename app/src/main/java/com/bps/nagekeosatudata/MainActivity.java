@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bps.nagekeosatudata.about.AboutActivity;
 import com.bps.nagekeosatudata.infografis.InfografisFragment;
+import com.bps.nagekeosatudata.podes.PodesFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -54,22 +55,25 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.ic_bps_launcher);
             getSupportActionBar().setSubtitle(R.string.subtitle);
+            getSupportActionBar().setTitle(R.string.toolbar_title);
         }
 
         IndikatorFragment indikatorFragment = new IndikatorFragment();
-        BrsFragment brsFragment = new BrsFragment();
+//        BrsFragment brsFragment = new BrsFragment();
         PublikasiFragment publikasiFragment = new PublikasiFragment();
         TabelFragment tabelFragment = new TabelFragment();
         BeritaFragment beritaFragment = new BeritaFragment();
         InfografisFragment infografisFragment = new InfografisFragment();
+        PodesFragment podesFragment = new PodesFragment();
 
         com.bps.nagekeosatudata.ViewPagerAdapter viewPagerAdapter = new com.bps.nagekeosatudata.ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(indikatorFragment, "Beranda");
         viewPagerAdapter.addFragment(publikasiFragment, "Publikasi");
         viewPagerAdapter.addFragment(tabelFragment, "Tabel Statis");
-        viewPagerAdapter.addFragment(brsFragment, "BRS");
+//        viewPagerAdapter.addFragment(brsFragment, "BRS");
         viewPagerAdapter.addFragment(infografisFragment, "Infografis");
         viewPagerAdapter.addFragment(beritaFragment, "Berita");
+        viewPagerAdapter.addFragment(podesFragment, "Podes");
 
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());
@@ -161,10 +165,11 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_search) {
             onSearchRequested();
             return true;
-        } else if (id == R.id.action_about){
-            Intent i = new Intent(this, AboutActivity.class);
-            startActivity(i);
         }
+//        else if (id == R.id.action_about){
+//            Intent i = new Intent(this, AboutActivity.class);
+//            startActivity(i);
+//        }
 
         return super.onOptionsItemSelected(item);
     }

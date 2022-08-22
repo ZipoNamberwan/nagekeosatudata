@@ -51,7 +51,7 @@ public class SendEmailActivity extends AppCompatActivity {
     }
 
     private void sendEmail(String judul, String pesan) {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "bps3513@bps.go.id"));
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "bps5318@bps.go.id"));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, judul);
         emailIntent.putExtra(Intent.EXTRA_TEXT, pesan);
         //emailIntent.putExtra(Intent.EXTRA_HTML_TEXT, body); //If you are using HTML in your body text

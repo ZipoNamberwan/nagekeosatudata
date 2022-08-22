@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Nagekeo</string>
+    <string name="app_name">Nagekeo Satu Data</string>
+    <string name="toolbar_title">Nagekeo</string>
     <string name="subtitle">Satu Data</string>
     <string name="action_settings">Settings</string>
 
@@ -21,7 +22,7 @@
     <string name="web_service_path_list_press_release"> https://webapi.bps.go.id/v1/api/list/?model=pressrelease&amp;lang=ind&amp;domain=5318</string>
     <string name="web_service_path_list_news"> https://webapi.bps.go.id/v1/api/list/?model=news&amp;lang=ind&amp;domain=5318</string>
     <string name="web_service_path_list_table"> https://webapi.bps.go.id/v1/api/list/?model=statictable&amp;lang=ind&amp;domain=5318</string>
-<!--    <string name="web_service_path_list_indicators"> https://webapi.bps.go.id/v1/api/list/?model=indicators&amp;lang=ind&amp;domain=3513</string>-->
+    <!--    <string name="web_service_path_list_indicators"> https://webapi.bps.go.id/v1/api/list/?model=indicators&amp;lang=ind&amp;domain=5318</string>-->
     <string name="web_service_path_list_infographics"> https://webapi.bps.go.id/v1/api/list/?model=infographic&amp;lang=ind&amp;domain=5318</string>
     <string name="web_service_path_list_data"> https://webapi.bps.go.id/v1/api/list/?model=data&amp;lang=ind&amp;domain=5318</string>
 

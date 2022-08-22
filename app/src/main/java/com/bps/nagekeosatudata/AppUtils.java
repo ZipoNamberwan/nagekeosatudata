@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
@@ -58,7 +59,7 @@ public class AppUtils {
 
     private static final int NOTIFICATION_DOWNLOAD_ID = 340057639;
 
-    public static String getDate(String dateString, boolean isSection){
+    public static String getDate(String dateString, boolean isSection) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String result = "";
         String day = "";
@@ -68,7 +69,7 @@ public class AppUtils {
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
 
-            switch (cal.get(Calendar.DAY_OF_WEEK)){
+            switch (cal.get(Calendar.DAY_OF_WEEK)) {
                 case 1:
                     day = "Minggu";
                     break;
@@ -92,7 +93,7 @@ public class AppUtils {
                     break;
             }
 
-            switch (cal.get(Calendar.MONTH)){
+            switch (cal.get(Calendar.MONTH)) {
                 case 0:
                     month = "Januari";
                     break;
@@ -130,10 +131,10 @@ public class AppUtils {
                     month = "Desember";
                     break;
             }
-            if(isSection){
-                result = result + month +" "+cal.get(Calendar.YEAR);
-            }else {
-                result = result + day+", "+cal.get(Calendar.DATE)+ " "+ month +" "+cal.get(Calendar.YEAR);
+            if (isSection) {
+                result = result + month + " " + cal.get(Calendar.YEAR);
+            } else {
+                result = result + day + ", " + cal.get(Calendar.DATE) + " " + month + " " + cal.get(Calendar.YEAR);
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -141,7 +142,7 @@ public class AppUtils {
         return result;
     }
 
-    public static int getCurrentYear(){
+    public static int getCurrentYear() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
         int tahun = 0;
@@ -155,19 +156,19 @@ public class AppUtils {
         return tahun;
     }
 
-    public static int getColorTheme(int kategori){
-        if (kategori == 1){
+    public static int getColorTheme(int kategori) {
+        if (kategori == 1) {
             return R.color.blue;
-        }else if (kategori == 2){
+        } else if (kategori == 2) {
             return R.color.orange;
-        }else if (kategori == 3){
+        } else if (kategori == 3) {
             return R.color.green;
-        }else {
+        } else {
             return R.color.black;
         }
     }
 
-    public static void downloadFile(final Activity activity, String url, final String title, String file){
+    public static void downloadFile(final Activity activity, String url, final String title, String file) {
 
         //Buat format notifikasi
         final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(activity, CHANNEL_ID);
@@ -187,7 +188,7 @@ public class AppUtils {
             @Override
             public void onAdded(@NotNull Download download) {
                 String modifiedTitle;
-                if (title.length() > 35){
+                if (title.length() > 35) {
                     modifiedTitle = title.substring(0, 35) + "...";
                 } else {
                     modifiedTitle = title;
@@ -217,7 +218,7 @@ public class AppUtils {
                 String filePath = download.getFile();
                 File file = new File(filePath);
                 MimeTypeMap mime = MimeTypeMap.getSingleton();
-                String ext=file.getName().substring(file.getName().indexOf(".")+1);
+                String ext = file.getName().substring(file.getName().indexOf(".") + 1);
                 String type = mime.getMimeTypeFromExtension(ext);
 
                 Uri uri = FileProvider.getUriForFile(activity, activity.getApplicationContext().getPackageName() + ".com.bps.nagekeosatudata.provider", file);
@@ -318,7 +319,7 @@ public class AppUtils {
         });
     }
 
-    private static List<String> getShareApplication(){
+    private static List<String> getShareApplication() {
         List<String> mList = new ArrayList<>();
         mList.add("com.facebook.katana");
         mList.add("com.twitter.android");
@@ -330,20 +331,20 @@ public class AppUtils {
     }
 
     public static void share(Activity activity, String judul, String url) {
-        try
-        {
+        try {
             List<Intent> targetedShareIntents = new ArrayList<>();
             Intent share = new Intent(Intent.ACTION_SEND);
             share.setType("text/plain");
+            PackageManager m = activity.getPackageManager();
             List<ResolveInfo> resInfo = activity.getPackageManager().queryIntentActivities(share, 0);
-            if (!resInfo.isEmpty()){
-                for (ResolveInfo info : resInfo) {
+            if (!resInfo.isEmpty()) {
+                for (int i = 0; i < resInfo.size(); i++) {
                     Intent targetedShare = new Intent(Intent.ACTION_SEND);
                     targetedShare.setType("text/plain");
-                    if (getShareApplication().contains(info.activityInfo.packageName.toLowerCase())) {
-                        targetedShare.putExtra(Intent.EXTRA_SUBJECT,judul);
-                        targetedShare.putExtra(Intent.EXTRA_TEXT,url);
-                        targetedShare.setPackage(info.activityInfo.packageName.toLowerCase());
+                    if (getShareApplication().contains(resInfo.get(i).activityInfo.packageName.toLowerCase())) {
+                        targetedShare.putExtra(Intent.EXTRA_SUBJECT, judul);
+                        targetedShare.putExtra(Intent.EXTRA_TEXT, url);
+                        targetedShare.setPackage(resInfo.get(i).activityInfo.packageName.toLowerCase());
                         targetedShareIntents.add(targetedShare);
                     }
                 }
@@ -351,13 +352,12 @@ public class AppUtils {
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[targetedShareIntents.size()]));
                 activity.startActivity(chooserIntent);
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String formatNumberSeparator(float f){
+    public static String formatNumberSeparator(float f) {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         //formatter.applyPattern("#.####");
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
@@ -369,13 +369,13 @@ public class AppUtils {
         return formatter.format(f);
     }
 
-    public static void saveToken(Activity activity, String token){
+    public static void saveToken(Activity activity, String token) {
         SharedPreferences.Editor editor = activity.getSharedPreferences(MY_SHARED_PREFERENCE, MODE_PRIVATE).edit();
         editor.putString(TOKEN_KEY, token);
         editor.apply();
     }
 
-    public static String getToken(Activity activity){
+    public static String getToken(Activity activity) {
         SharedPreferences prefs = activity.getSharedPreferences(MY_SHARED_PREFERENCE, MODE_PRIVATE);
         return prefs.getString(TOKEN_KEY, null);
     }
@@ -414,16 +414,16 @@ public class AppUtils {
         }
     }
 
-    public static String getUrlShare(String prefix, String tanggal, String id, String title){
+    public static String getUrlShare(String prefix, String tanggal, String id, String title) {
 
         String tanggalUrl = tanggal.replace("-", "/");
         String titleUrl = title.toLowerCase().replaceAll("[^A-Za-z0-9]", "-");
 
-        return prefix + tanggalUrl + "/" + id +"/" + titleUrl + ".html";
+        return prefix + tanggalUrl + "/" + id + "/" + titleUrl + ".html";
 
     }
 
-    public static String getVarId(String indikatorId){
+    public static String getVarId(String indikatorId) {
         String s = "";
         switch (indikatorId) {
             case "1":
@@ -436,7 +436,7 @@ public class AppUtils {
                 break;
             case "3":
                 //inflasi
-                s =  "1";
+                s = "1";
                 break;
             case "4":
                 //jml penduduk miskin

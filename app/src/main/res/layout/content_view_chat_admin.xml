@@ -156,7 +156,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hubungi Kami - Email dan Telepon"
+                        android:text="Hubungi Kami - Email"
                         android:id="@+id/email_text"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_marginBottom="5dp"
