@@ -24,6 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bps.nagekeosatudata.about.AboutActivity;
 import com.bps.nagekeosatudata.infografis.InfografisFragment;
 import com.bps.nagekeosatudata.podes.PodesFragment;
+import com.bps.nagekeosatudata.sectoral.DataSektoralFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -61,19 +62,21 @@ public class MainActivity extends AppCompatActivity {
         IndikatorFragment indikatorFragment = new IndikatorFragment();
 //        BrsFragment brsFragment = new BrsFragment();
         PublikasiFragment publikasiFragment = new PublikasiFragment();
-        TabelFragment tabelFragment = new TabelFragment();
+        PodesFragment podesFragment = new PodesFragment();
+        DataSektoralFragment dataSektoralFragment = new DataSektoralFragment();
+//        TabelFragment tabelFragment = new TabelFragment();
         BeritaFragment beritaFragment = new BeritaFragment();
         InfografisFragment infografisFragment = new InfografisFragment();
-        PodesFragment podesFragment = new PodesFragment();
 
         com.bps.nagekeosatudata.ViewPagerAdapter viewPagerAdapter = new com.bps.nagekeosatudata.ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(indikatorFragment, "Beranda");
         viewPagerAdapter.addFragment(publikasiFragment, "Publikasi");
-        viewPagerAdapter.addFragment(tabelFragment, "Tabel Statis");
+        viewPagerAdapter.addFragment(podesFragment, "Potensi Desa");
+        viewPagerAdapter.addFragment(dataSektoralFragment, "Data Sektoral");
+//        viewPagerAdapter.addFragment(tabelFragment, "Tabel Statis");
 //        viewPagerAdapter.addFragment(brsFragment, "BRS");
         viewPagerAdapter.addFragment(infografisFragment, "Infografis");
         viewPagerAdapter.addFragment(beritaFragment, "Berita");
-        viewPagerAdapter.addFragment(podesFragment, "Podes");
 
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());

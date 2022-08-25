@@ -54,8 +54,8 @@ public class IndikatorFragment extends Fragment {
         objects.add(new PublikasiItem("","","","","","","","",false, false));
         objects.add("Infografis Terbaru");
         objects.add(new InfografisItem("","","","",""));
-        objects.add("Tabel Statistik Terbaru");
-        objects.add(new TabelItem("","","","","","","",0,false,false));
+//        objects.add("Tabel Statistik Terbaru");
+//        objects.add(new TabelItem("","","","","","","",0,false,false));
 //        objects.add("Berita Resmi Statistik (BRS) Terbaru");
 //        objects.add(new BrsItem("","","","","","","",4,false,false));
         objects.add("Berita");

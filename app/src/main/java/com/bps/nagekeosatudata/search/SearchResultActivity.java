@@ -63,8 +63,8 @@ public class SearchResultActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(publikasiFragment, "Publikasi");
-        viewPagerAdapter.addFragment(tabelFragment, "Tabel Statis");
-        viewPagerAdapter.addFragment(brsFragment, "BRS");
+//        viewPagerAdapter.addFragment(tabelFragment, "Tabel Statis");
+//        viewPagerAdapter.addFragment(brsFragment, "BRS");
         viewPagerAdapter.addFragment(beritaFragment, "Berita");
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOffscreenPageLimit(viewPagerAdapter.getCount());
