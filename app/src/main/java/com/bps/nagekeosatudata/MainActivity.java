@@ -6,12 +6,14 @@ import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SearchEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,10 +54,20 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+        View root = tabLayout.getChildAt(0);
+        if (root instanceof LinearLayout) {
+            ((LinearLayout) root).setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+            GradientDrawable drawable = new GradientDrawable();
+            drawable.setColor(getResources().getColor(R.color.white));
+            drawable.setSize(2, 1);
+            ((LinearLayout) root).setDividerPadding(20);
+            ((LinearLayout) root).setDividerDrawable(drawable);
+        }
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setIcon(R.drawable.ic_bps_launcher);
-            getSupportActionBar().setSubtitle(R.string.subtitle);
+//            getSupportActionBar().setSubtitle(R.string.subtitle);
             getSupportActionBar().setTitle(R.string.toolbar_title);
         }
 

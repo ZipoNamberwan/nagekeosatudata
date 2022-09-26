@@ -52,16 +52,17 @@ public class PodesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         list = new ArrayList<>();
-        list.add(new PodesItem("1", "Geografi", "https://www.google.com/maps/d/edit?mid=1xee0dQhu7eXFjeNzmf4t8NGDZBw5E1g&usp=sharing"));
-        list.add(new PodesItem("2", "Pendidikan", "https://www.google.com/maps/d/edit?mid=1yvR0d2WmPDXUDsgPizPbAutCuGZptF8&usp=sharing"));
-        list.add(new PodesItem("3", "Penerangan dan Bahan Bakar Utama", "https://www.google.com/maps/d/edit?mid=1QRnbLX0sDMcNk82NvXggaipck0_e6s8&usp=sharing"));
-        list.add(new PodesItem("4", "Perdagangan dan Akomodasi", "https://www.google.com/maps/d/edit?mid=1LhTw5lNSg8YKw6bMNTgegddKaDSQbuY&usp=sharing"));
-        list.add(new PodesItem("5", "Koperasi dan Perbankan", "https://www.google.com/maps/d/edit?mid=1S0ATDdvAZE32azRZov3FJ58AxnHiBxk&usp=sharing"));
-        list.add(new PodesItem("6", "Komunikasi", "https://www.google.com/maps/d/edit?mid=1c-E9ef42ou9WtBRUHgm2s6Me6hVEXt0&usp=sharing"));
-        list.add(new PodesItem("7", "Kesehatan", "https://www.google.com/maps/d/edit?mid=1SIi9oQbOJnAinfSW3DfCKEMl4LIe1FA&usp=sharing"));
-        list.add(new PodesItem("8", "Industri", "https://www.google.com/maps/d/edit?mid=1Q-RWcqqrahLngt95FJ1aUM-Wq0hG-zM&usp=sharing"));
-        list.add(new PodesItem("9", "Transportasi", "https://www.google.com/maps/d/edit?mid=1MF8y9fbtEwZMVF9qG-6WGnyqQKYnuIQ&usp=sharing"));
-        list.add(new PodesItem("9", "Sumber Air Minum Utama dan Sanitasi", "https://www.google.com/maps/d/edit?mid=1PiLxqSAedK8B8GYmZhAJwKp6oxlfI_E&usp=sharing"));
+        list.add(new PodesItem("1", "Kependudukan", "https://www.google.com/maps/d/edit?mid=1u8wLoTNeg9QPDEIpoLr6e2aubvq65AY&usp=sharing"));
+        list.add(new PodesItem("2", "Geografi", "https://www.google.com/maps/d/edit?mid=1xee0dQhu7eXFjeNzmf4t8NGDZBw5E1g&usp=sharing"));
+        list.add(new PodesItem("3", "Pendidikan", "https://www.google.com/maps/d/edit?mid=1yvR0d2WmPDXUDsgPizPbAutCuGZptF8&usp=sharing"));
+        list.add(new PodesItem("4", "Penerangan dan Bahan Bakar Utama", "https://www.google.com/maps/d/edit?mid=1QRnbLX0sDMcNk82NvXggaipck0_e6s8&usp=sharing"));
+        list.add(new PodesItem("5", "Perdagangan dan Akomodasi", "https://www.google.com/maps/d/edit?mid=1LhTw5lNSg8YKw6bMNTgegddKaDSQbuY&usp=sharing"));
+        list.add(new PodesItem("6", "Koperasi dan Perbankan", "https://www.google.com/maps/d/edit?mid=1S0ATDdvAZE32azRZov3FJ58AxnHiBxk&usp=sharing"));
+        list.add(new PodesItem("7", "Komunikasi", "https://www.google.com/maps/d/edit?mid=1c-E9ef42ou9WtBRUHgm2s6Me6hVEXt0&usp=sharing"));
+        list.add(new PodesItem("8", "Kesehatan", "https://www.google.com/maps/d/edit?mid=1SIi9oQbOJnAinfSW3DfCKEMl4LIe1FA&usp=sharing"));
+        list.add(new PodesItem("9", "Industri", "https://www.google.com/maps/d/edit?mid=1Q-RWcqqrahLngt95FJ1aUM-Wq0hG-zM&usp=sharing"));
+        list.add(new PodesItem("10", "Transportasi", "https://www.google.com/maps/d/edit?mid=1MF8y9fbtEwZMVF9qG-6WGnyqQKYnuIQ&usp=sharing"));
+        list.add(new PodesItem("11", "Sumber Air Minum Utama dan Sanitasi", "https://www.google.com/maps/d/edit?mid=1PiLxqSAedK8B8GYmZhAJwKp6oxlfI_E&usp=sharing"));
 
         adapter = new PodesAdapter(list, getActivity(), new RecyclerViewClickListener() {
             @Override
