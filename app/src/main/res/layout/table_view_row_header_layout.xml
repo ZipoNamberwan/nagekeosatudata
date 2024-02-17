@@ -39,7 +39,6 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/table_view_default_text_color"
             android:textStyle="bold"
             tools:text="Row Data"/>
 

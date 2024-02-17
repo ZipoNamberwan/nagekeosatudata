@@ -32,8 +32,6 @@ import com.google.android.material.tabs.TabLayout;
 
 import com.bps.nagekeosatudata.berita.BeritaFragment;
 import com.bps.nagekeosatudata.brs.BrsFragment;
-import com.bps.nagekeosatudata.chat.ChatActivity;
-import com.bps.nagekeosatudata.chat.ViewChatAdminActivity;
 import com.bps.nagekeosatudata.indikator.IndikatorFragment;
 import com.bps.nagekeosatudata.publikasi.PublikasiFragment;
 import com.bps.nagekeosatudata.tabelstatis.TabelFragment;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         if (root instanceof LinearLayout) {
             ((LinearLayout) root).setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
             GradientDrawable drawable = new GradientDrawable();
-            drawable.setColor(getResources().getColor(R.color.white));
+            drawable.setColor(getResources().getColor(R.color.md_white_1000));
             drawable.setSize(2, 1);
             ((LinearLayout) root).setDividerPadding(20);
             ((LinearLayout) root).setDividerDrawable(drawable);
@@ -97,31 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
         com.bps.nagekeosatudata.AppUtils.createNotificationChannel(this);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getBaseContext(), ViewChatAdminActivity.class);
-                startActivity(i);
-            }
-        });
-
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            if (bundle.getString("sented") != null) {
-                String sender = bundle.getString("sented");
-                String receiver = bundle.getString("user");
-                String username = bundle.getString("username");
-                String photo = bundle.getString("photo");
-
-                Intent i = new Intent(this, ChatActivity.class);
-                i.putExtra(ChatActivity.ID_ADMIN_RECEIVER, receiver);
-                i.putExtra(ChatActivity.ID_USER_SENDER, sender);
-                i.putExtra(ChatActivity.USERNAME_RECEIVER, username);
-                i.putExtra(ChatActivity.URL_PHOTO_RECEIVER, photo);
-                startActivity(i);
-            }
-        }
     }
 
     @Override

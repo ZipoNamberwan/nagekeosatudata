@@ -119,7 +119,6 @@
     </string>
     <string name="title_activity_view_chat">Tanya Kami!</string>
     <string name="sign_out">Sign out</string>
-    <string name="title_activity_chat">ChatActivity</string>
     <string name="hint_enter_a_message">Type a message…</string>
     <string name="date_header_today">Hari ini</string>
     <string name="date_header_yesterday">Kemarin</string>
