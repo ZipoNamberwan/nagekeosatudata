@@ -249,8 +249,10 @@ public class GrafikDetailActivity extends AppCompatActivity {
         vertikalVariabels = new ArrayList<>();
         JSONArray verVarJsonArray = jsonObject.getJSONArray("vervar");
         for (int i = 0; i < verVarJsonArray.length(); i++){
-            vertikalVariabels.add(new VertikalVariabel(verVarJsonArray.getJSONObject(i).getString("val"),
-                    verVarJsonArray.getJSONObject(i).getString("label")));
+            if (!tryParseInt(verVarJsonArray.getJSONObject(i).getString("label"))){
+                vertikalVariabels.add(new VertikalVariabel(verVarJsonArray.getJSONObject(i).getString("val"),
+                        verVarJsonArray.getJSONObject(i).getString("label")));
+            }
         }
 
         //Setup Turvar
@@ -370,5 +372,14 @@ public class GrafikDetailActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return super.onSupportNavigateUp();
+    }
+
+    private static boolean tryParseInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

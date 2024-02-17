@@ -228,7 +228,7 @@ public class AppUtils {
                 openFile.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 openFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-                PendingIntent pendingIntent = PendingIntent.getActivity(activity, 0, openFile, 0);
+                PendingIntent pendingIntent = PendingIntent.getActivity(activity, 0, openFile, PendingIntent.FLAG_MUTABLE);
 
                 mBuilder.setSmallIcon(R.drawable.baseline_check_24)
                         .setOngoing(false)

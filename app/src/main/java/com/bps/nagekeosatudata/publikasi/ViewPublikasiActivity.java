@@ -260,9 +260,11 @@ public class ViewPublikasiActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_share) {
-            String urlShare = AppUtils.getUrlShare(getString(R.string.web_share_publication), tanggal, idPublikasi, judul);
-            AppUtils.share(this, judul, urlShare);
-            return true;
+            if (judul != null){
+                String urlShare = AppUtils.getUrlShare(getString(R.string.web_share_publication), tanggal, idPublikasi, judul);
+                AppUtils.share(this, judul, urlShare);
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
