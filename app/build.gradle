@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         compileSdk 33
-        applicationId "com.bps.nagekeosatudata"
+        applicationId "com.bps.nagekeosatudatanew"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 2
@@ -32,7 +32,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    namespace 'com.bps.nagekeosatudata'
+    namespace 'com.bps.nagekeosatudatanew'
 }
 
 dependencies {

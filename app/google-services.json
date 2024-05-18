@@ -1,45 +1,26 @@
 {
   "project_info": {
-    "project_number": "822714841887",
-    "firebase_url": "https://nagekeosatudata-default-rtdb.firebaseio.com",
-    "project_id": "nagekeosatudata",
-    "storage_bucket": "nagekeosatudata.appspot.com"
+    "project_number": "25006489876",
+    "project_id": "bps-nagekeo",
+    "storage_bucket": "bps-nagekeo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:822714841887:android:35a9ab875f06403dbece2a",
+        "mobilesdk_app_id": "1:25006489876:android:6782a38ec91f6e56dbc201",
         "android_client_info": {
-          "package_name": "com.bps.nagekeosatudata"
+          "package_name": "com.bps.nagekeosatudatanew"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "822714841887-1o3igcb9rcbhjfdhsj3s6h7h75l1ceg6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.bps.nagekeosatudata",
-            "certificate_hash": "6bc5364e07de98a597355cfe5fa8d198abcbbf9e"
-          }
-        },
-        {
-          "client_id": "822714841887-464n6kh8b8kr7e328684ngrs4bkjd1v0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBYHE0AHwjvs19CH8KzfNVu5pwTQlFKWCk"
+          "current_key": "AIzaSyAcX3ogA5nwQiWJaTQFs52H608RNB_6pHM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "822714841887-464n6kh8b8kr7e328684ngrs4bkjd1v0.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

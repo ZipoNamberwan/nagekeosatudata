@@ -22,7 +22,7 @@
 
         <provider
             android:name=".GenericFileProvider"
-            android:authorities="${applicationId}.com.bps.nagekeosatudata.provider"
+            android:authorities="${applicationId}.com.bps.nagekeosatudatanew.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
